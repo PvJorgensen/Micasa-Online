@@ -11,7 +11,7 @@ export const FrontCards = () => {
             try {
                 const { data, error } = await supabase
                     .from("estates")
-                    .select("id, address, price, num_rooms, floor_space, city_id, type_id(name), image_url, cities(zipcode,name), energy_label_id(id,letter)");
+                    .select("id, address, price, num_rooms, floor_space, city_id, type_id(name), image_url, cities(zipcode,name), energy_label_id(id,letter,color)");
                 if (error) {
                     throw error;
                 }
@@ -41,8 +41,7 @@ export const FrontCards = () => {
                         <section className={styles.infoBox}>
                             <div className={styles.topSection}>
                             <p>{item.address}</p>
-                            <p>{item.energy_label_id.letter}</p>
-                            <p></p>
+                            <p style={{ backgroundColor: item.energy_label_id.color }}>{item.energy_label_id.letter}</p>
                             </div>
                             <p>{item.cities.zipcode} {item.cities.name}</p>
                             <p>{item.type_id.name}</p>
