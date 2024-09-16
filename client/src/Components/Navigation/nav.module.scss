@@ -1,0 +1,31 @@
+.navMain {
+    display: flex;
+    align-items: center;
+    ul {
+        display: flex;
+        margin-right: 40px;
+        li {
+            color: white;
+            margin-right: 40px;
+            font-size: 20px;
+            a {
+                color: white;
+            }
+        }
+        a:hover {
+            color: #AC9FBB;
+            transition: ease-in-out 0.5s;
+        }
+    }
+    form {
+        display: flex;
+        input {
+            border: none;
+            border-radius: 5px 0px 0px 5px;
+            padding: 3px;
+        }
+        img {
+            cursor: pointer;
+        }
+    }
+}
