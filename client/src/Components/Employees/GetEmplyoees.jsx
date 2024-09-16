@@ -40,11 +40,11 @@ export const GetEmplyoees = () => {
                 style={{ backgroundImage: `url(${item.image_url})` }}
               />
               <div className={styles.employeeInfo}>
-                <p>{item.firstname} {item.lastname}</p>
+                <h3>{item.firstname} {item.lastname}</h3>
                 <p>{item.position}</p>
                 <div className={styles.fadeIn}>
-                  <p>{item.phone}</p>
-                  <p>{item.email}</p>
+                  <p>Telefon: {item.phone}</p>
+                  <p>Email: {item.email}</p>
                 </div>
               </div>
             </div>

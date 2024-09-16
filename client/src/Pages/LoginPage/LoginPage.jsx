@@ -1,7 +1,8 @@
 import React from 'react'
+import { Login } from '../../Components/Login/Login'
 
 export const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+    <Login />
   )
 }

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.loginWrapper {
+    font-family: "Poppins", sans-serif;
+    .loginBox {
+        margin-left: 100px;
+        margin-bottom: 400px;
+        div {
+            h2 {
+                font-weight: 500;
+            }
+            h3 {
+                font-weight: 400;
+            }
+        }
+        input {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 317px;
+            height: 32px;
+            padding: 7px;
+            border: 1px solid lightgray;
+            border-radius: 4px;
+        }
+        button {
+            padding: 4px 20px 4px 20px;
+            border: none;
+            background-color: #F7EBEC;
+            border-radius: 4px;
+            box-shadow: 5px 4px 10px lightgray;
+            height: 29px;
+            width: 77px;
+        }
+    }
+}
