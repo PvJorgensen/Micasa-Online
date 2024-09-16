@@ -9,7 +9,7 @@ export const Nav = () => {
   return (
     <nav className={styles.navMain}>
         <ul>
-            <li><Link to='/Forside'>Forside</Link></li>
+            <li><Link to='/'>Forside</Link></li>
             <li><Link to='/Boliger'>Boliger</Link></li>
             <li><Link to='/Kontakt'>Kontakt</Link></li>
             <li><Link to='/Login'>Login</Link></li>

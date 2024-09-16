@@ -8,7 +8,7 @@ import add from '../../assets/Images/FieldIcon.png';
 export const Footer = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const { supabase } = useSupabase();
-  const { successMessage, setSuccessMessage } = useState();
+  const [ successMessage, setSuccessMessage ] = useState();
 
   const onSubmit = async (data) => {
     if (supabase) {
@@ -55,7 +55,9 @@ export const Footer = () => {
           <img src={add} alt="" />
           <input {...register("Email", { required: true })} placeholder='Indtast din email' />
           <button type='submit'>Tilmeld</button>
+          
         </section>
+        {successMessage && <p>{successMessage}</p>}
       </form>
     </footer>
   );

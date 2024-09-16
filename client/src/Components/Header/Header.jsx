@@ -8,7 +8,7 @@ export const Header = () => {
 
   return (
     <header className={styles.headerMain}>
-        <Link to='/Forside'><img src={logo} alt="Logo" /></Link>
+        <Link to='/'><img src={logo} alt="Logo" /></Link>
         <section>
             <Nav />
         </section>

@@ -1,0 +1,29 @@
+.slideShowContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 70vh; /* Container height remains 70% of the viewport height */
+    margin-top: -90px;
+    z-index: -10;
+  
+    .slidesWrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+  
+    .slide {
+      min-width: 100%;
+      height: 100%; /* Ensures each slide takes the full height of the container */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    img {
+      width: 100%;
+      object-fit: cover; /* Ensures the entire image fits within the container */
+      height: 500px;
+      margin-top: -10px;
+    }
+  }
+  
