@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    height: 70vh; /* Container height remains 70% of the viewport height */
+    height: 60vh; /* Container height remains 70% of the viewport height */
     margin-top: -90px;
     z-index: -10;
   
@@ -22,8 +22,8 @@
     img {
       width: 100%;
       object-fit: cover; /* Ensures the entire image fits within the container */
-      height: 500px;
-      margin-top: -10px;
+      height: 800px;
+      margin-top: -100px;
     }
   }
   

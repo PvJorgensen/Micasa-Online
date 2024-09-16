@@ -2,11 +2,11 @@
 
 .cardsWrapper {
     font-family: "Poppins", sans-serif;
-    margin-top: -100px;
+    margin-top: -150px;
     margin-left: 50%;
     transform: translateX(-50%);
     height: 40vh;
-    width: 80%;
+    width: 90%;
     margin-bottom: 200px;
 
     .Container {
@@ -19,16 +19,17 @@
         width: 100%;
         border-radius: 8px;
         box-shadow: 2px 5px 10px lightgray;
-        max-width: 350px;
-        min-height: 400px;
+        max-width: 400px;
+        min-height: 450px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         .topSection {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 2fr;
             p:nth-child(2) {
                 text-align: end;
+                margin-right: 10px;
             }
         }
         .priceContainer {
@@ -47,6 +48,6 @@
         }
     }
     .card:nth-child(2) {
-        margin-top: -20px;
+        margin-top: -40px;
     }
 }
