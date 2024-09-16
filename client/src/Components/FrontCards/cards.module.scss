@@ -26,7 +26,10 @@
         justify-content: space-between;
         .topSection {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 2fr 1fr;
+            p {
+                width: 100%;
+            }
             p:nth-child(2) {
                 text-align: end;
                 margin-right: 10px;

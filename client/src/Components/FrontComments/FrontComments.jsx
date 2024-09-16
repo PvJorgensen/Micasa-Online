@@ -1,36 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';  // Import useEffect
 import styles from './frontcomments.module.scss';
 import { useForm } from "react-hook-form";
+import { useSupabase } from '../../Providers/SupabaseProvider';
 
 export const FrontComments = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const { supabase } = useSupabase();
+  const [successMessage, setSuccessMessage] = useState("");
+  const [userComments, setUserComments] = useState([]);  // Initialize comments array
 
   const onSubmit = async (data) => {
     if (supabase) {
       const { data: supabaseData, error } = await supabase
-        .from("contact_messages")
+        .from("user_comments")
         .insert([{
-        id: data.Id,
-        name: data.Name,
-        message: data.Message,
-        created_at: new Date()
+          name: data.name,     // 'name' from the form
+          email: data.email,   // 'email' from the form
+          message: data.content, // 'content' is the message field
+          created_at: new Date()
         }]);
 
       if (error) {
-        console.error("Error joining newsletter", error);
-        setSuccessMessage("Der var en fejl i din tilmelding");
+        console.error("Error sending message", error);
+        setSuccessMessage("Der var en fejl i afsendelsen af beskeden");
       } else {
-        setSuccessMessage("Du er nu tilmeldt Nyhedsbrevet!")
-        reset();
+        setSuccessMessage("Din besked er nu blevet sendt!");
+        reset(); // Reset the form after successful submission
+        getUserComments(); // Fetch comments again after successful submission
       }
     }
   };
 
+  const getUserComments = async () => {
+    if (supabase) {
+      try {
+        const { data, error } = await supabase
+          .from("user_comments")
+          .select("id, name, email, message, created_at");
+        if (error) {
+          throw error;
+        }
+        const sortedData = data.sort(() => 0.5 - Math.random());
+        setUserComments(sortedData);
+      } catch (error) {
+        console.error("Error loading comments:", error.message);
+      }
+    }
+  };
+
+  useEffect(() => {
+    getUserComments();
+  }, [supabase]);
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
 
   return (
     <>
@@ -39,21 +64,48 @@ export const FrontComments = () => {
           <h1>Det her siger vores kunder</h1>
         </section>
         <section className={styles.commentsBox}>
-          Fetchede Comments
+        {userComments.length > 0 ? (
+          userComments.map((item) => (
+            <section key={item.id}>
+              <p>{item.message}</p>
+              <p>{item.name}</p>
+            </section>
+          ))
+          ) : (
+            <p>Ingen kommentarer endnu</p>
+          )}
         </section>
         <section 
           className={`${styles.dropMenu} ${isOpen ? styles.active : ''}`}
         >
           <p onClick={toggleDropdown}>Skriv en anmeldelse</p>
           <div className={styles.dropdownContent}>
-            <form>
-            <input type="text" placeholder='Indtast dit navn'/>
-            <input type="text" placeholder='Indtast din email'/>
-            <textarea name="" id="" placeholder='Skriv en anmeldelse'></textarea>
-            <section className={styles.btnContainer}>
-                <button>Send</button>
-            </section>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input 
+                type="text" 
+                placeholder="Indtast dit navn" 
+                {...register("name", { required: true })} 
+              />
+              {errors.name && <p>Navn er påkrævet</p>}
+              
+              <input 
+                type="text" 
+                placeholder="Indtast din email" 
+                {...register("email", { required: true })} 
+              />
+              {errors.email && <p>Email er påkrævet</p>}
+              
+              <textarea 
+                placeholder="Skriv en anmeldelse" 
+                {...register("content", { required: true })} 
+              />
+              {errors.content && <p>Anmeldelse er påkrævet</p>}
+
+              <section className={styles.btnContainer}>
+                <button type="submit">Send</button>
+              </section>
             </form>
+            {successMessage && <span>{successMessage}</span>}
           </div>
         </section>
       </div>
