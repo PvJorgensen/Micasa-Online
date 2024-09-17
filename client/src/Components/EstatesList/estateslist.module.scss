@@ -1,0 +1,73 @@
+.cardsWrapper {
+    font-family: "Poppins", sans-serif;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    margin-bottom: 20px;
+    .filter {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        .selectContainer {
+            display: flex;
+            justify-content: flex-end;
+            select {
+                margin-left: 20px;
+                padding: 5px;
+                border: 1px solid lightgray;
+                width: 33%;
+                border-radius: 4px;
+                margin-right: 12px;
+                transition: ease-in-out 1s;
+            }
+        }
+        h2 {
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+    }
+    .Container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .card {
+        background-color: white;
+        padding: 10px;
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 2px 5px 10px lightgray;
+        max-width: 400px;
+        min-height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        .topSection {
+            display: flex;
+            justify-content: space-between;
+            p {
+                width: 100%;
+            }
+            p:nth-child(2) {
+                text-align: center;
+                margin-right: 10px;
+                width: 20px;
+                color: white;
+            }
+        }
+        .priceContainer {
+            display: flex;
+            justify-content: flex-end;
+            h2 {
+                font-weight: 300;
+            }
+        }
+        img {
+            width: 100%;
+            min-height: 270px;
+        }
+        .infoBox {
+            margin-top: 5px;
+        }
+    }
+}
