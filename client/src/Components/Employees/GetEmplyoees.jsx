@@ -42,10 +42,8 @@ export const GetEmplyoees = () => {
               <div className={styles.employeeInfo}>
                 <h3>{item.firstname} {item.lastname}</h3>
                 <p>{item.position}</p>
-                <div className={styles.fadeIn}>
                   <p>Telefon: {item.phone}</p>
                   <p>Email: {item.email}</p>
-                </div>
               </div>
             </div>
           ))
