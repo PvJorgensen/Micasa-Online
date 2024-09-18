@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .topImg {
     width: 100%;
     img {
@@ -7,5 +9,54 @@
         margin-top: -90px;
         position: relative;
         z-index: -999;
+    }
+}
+
+.contentWrapper {
+    font-family: "Poppins", sans-serif;
+    width: 90%;
+    margin-top: -150px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    padding: 20px;
+    .topElements {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        .iconContainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            img {
+                width: 20%;
+            }
+        }
+        .flexPrices {
+            display: flex;
+            justify-content: flex-end;
+            align-items: baseline;
+            h3 {
+                font-size: 30px;
+            }
+            p {
+                margin-right: 10px;
+            }
+        }
+        .smallPrices {
+            display: flex;
+            flex-direction: column;
+            text-align: end;
+        }
+    }
+}
+
+.mainContainer {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .boxStyles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 }
