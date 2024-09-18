@@ -9,13 +9,14 @@
         margin-top: -90px;
         position: relative;
         z-index: -999;
+        border-bottom: 20px solid #1D1E2C;
     }
 }
 
 .contentWrapper {
     font-family: "Poppins", sans-serif;
     width: 90%;
-    margin-top: -150px;
+    margin-top: -170px;
     margin-left: 50%;
     transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.85);
