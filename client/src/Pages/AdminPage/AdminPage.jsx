@@ -2,6 +2,6 @@ import React from 'react'
 
 export const AdminPage = () => {
   return (
-    <div>AdminPage</div>
+    <div>Se dine liked boliger</div>
   )
 }

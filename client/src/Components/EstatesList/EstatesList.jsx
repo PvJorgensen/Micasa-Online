@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSupabase } from '../../Providers/SupabaseProvider';
 import styles from './estateslist.module.scss';
+import { Link } from 'react-router-dom';
 
 export const EstatesList = () => {
   const [cardsData, setCardsData] = useState([]);
@@ -28,7 +29,7 @@ export const EstatesList = () => {
           );
         }
 
-        // Sortere data baseret på hviklen sortering man vælger
+        // Sortere data baseret på hvilken sortering man vælger
         if (sortOption === 'Pris - Stigende') {
           filteredData.sort((a, b) => a.price - b.price);
         } else if (sortOption === 'Pris - Faldende') {
@@ -87,7 +88,9 @@ export const EstatesList = () => {
       <div className={styles.Container}>
         {cardsData.slice(0, 9).map((item) => (
           <section key={item.id} className={styles.card}>
+            <Link to={`./${item.id}`}>
             <img src={item.image_url} alt="Primary Img" />
+            </Link>
             <section className={styles.infoBox}>
               <div className={styles.topSection}>
                 <p>{item.address}</p>
