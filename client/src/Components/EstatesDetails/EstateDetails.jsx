@@ -118,8 +118,8 @@ export const EstateDetails = () => {
             </div>
             <div className={styles.scndRow}>
               <p>{estatesDetails.id}</p>
-              <p>{estatesDetails.floor_space}</p>
-              <p>{estatesDetails.ground_space}</p>
+              <p>{estatesDetails.floor_space} m2</p>
+              <p>{estatesDetails.ground_space} m2</p>
               <p>{estatesDetails.num_rooms}</p>
               <p>{estatesDetails.num_floors}</p>
             </div>
@@ -133,11 +133,11 @@ export const EstateDetails = () => {
               <p>Liggetid</p>
             </div>
             <div className={styles.scndRow}>
-              <p>{estatesDetails.basement_space}</p>
+              <p>{estatesDetails.basement_space} m2</p>
               <p>{estatesDetails.year_construction}</p>
               <p>{estatesDetails.year_rebuilt}</p>
               <p>{estatesDetails.energy_label_id?.letter}</p>
-              <p>#</p>
+              <p># dage</p>
             </div>
           </div>
           <div className={styles.boxStyles}>

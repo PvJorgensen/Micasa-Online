@@ -1,10 +1,10 @@
 import React from 'react'
-import { LikedEstates } from '../../Components/LikedEstates/LikedEstates'
+import { AdminComments } from '../../Components/LikedEstates/AdminComments'
 
 export const AdminPage = () => {
   return (
     <>
-    <LikedEstates />
+    <AdminComments />
     </>
   )
 }

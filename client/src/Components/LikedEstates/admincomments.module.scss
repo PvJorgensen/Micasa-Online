@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.adminContainer {
+    font-family: "Poppins", sans-serif;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 5rem;
+    padding: 40px;
+    .comments {
+        .rows {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            border-top: 1px solid #59656F;
+            margin-bottom: 10px;
+        }  
+    }
+    .logout {
+        border-left: 1px solid #59656F;
+        p {
+            margin-left: 10px;
+        }
+        button {
+            margin-top: 5px;
+            margin-left: 10px;
+            background-color: #F7EBEC;
+            width: 87px;
+            height: 29px;
+            border-radius: 4px;
+            padding: 4px 20px 4px 20px;
+            border: none;
+            box-shadow: 2px 3px 10px lightgray;
+        }
+    }
+}
