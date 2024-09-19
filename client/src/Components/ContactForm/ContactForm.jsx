@@ -104,8 +104,7 @@ export const ContactForm = () => {
           style={{ border: 0 }}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Google Maps"
-        />
+          title="Google Maps"/>
       </section>
     </section>
   );
