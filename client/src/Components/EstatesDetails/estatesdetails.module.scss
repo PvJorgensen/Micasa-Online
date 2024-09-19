@@ -19,12 +19,17 @@
     margin-top: -170px;
     margin-left: 50%;
     transform: translateX(-50%);
+    margin-bottom: 50px;
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 8px;
     padding: 20px;
+    box-shadow: 2px 5px 10px gray;
     .topElements {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        h2 {
+            font-weight: 600;
+        }
         .iconContainer {
             display: flex;
             justify-content: space-between;
@@ -39,6 +44,7 @@
             align-items: baseline;
             h3 {
                 font-size: 30px;
+                font-weight: 600;
             }
             p {
                 margin-right: 10px;
@@ -56,8 +62,45 @@
     margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    gap: 12rem;
     .boxStyles {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin: auto;
+        .firstRow {
+            display: flex;
+            flex-direction: column;
+            p {
+                margin-bottom: 3px;
+            }
+        }
+        .scndRow {
+            display: flex;
+            flex-direction: column;
+            text-align: end;
+            p {
+                margin-bottom: 3px;
+            }
+        }
+    }
+}
+
+.description {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5rem;
+    p {
+        white-space: pre-line;
+    }
+    .employee {
+        display: flex;
+        justify-content: flex-end;
+        img {
+            max-height: 270px;
+            width: 186px;
+        }
     }
 }

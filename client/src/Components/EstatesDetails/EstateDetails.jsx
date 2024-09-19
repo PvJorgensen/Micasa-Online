@@ -17,7 +17,7 @@ export const EstateDetails = () => {
             try {
                 const { data, error } = await supabase
                     .from("estates")
-                    .select("id, address, price, gross, payout, num_rooms, floor_space, city_id, num_clicks, type_id(name), image_url, cities(zipcode,name), energy_label_id(id,letter,color)")
+                    .select("id, address, description, price, gross, net, cost, payout, num_rooms, num_floors, floor_space, ground_space, basement_space, year_construction, year_rebuilt, city_id, num_clicks, type_id(name), image_url, cities(zipcode,name), energy_label_id(id,letter,color), employees(id,firstname,lastname,position,image_url,phone,email)")
                     .eq('id', estate_id)
                     .single()
                 if (error) {
@@ -68,21 +68,71 @@ export const EstateDetails = () => {
             </section>
             <section className={styles.mainContainer}>
             <div className={styles.boxStyles}>
-                <p>Hej</p>
-                <p>Dav</p>
+                <div className={styles.firstRow}>
+                    <p>Sagsnr.</p>
+                    <p>Boligareal</p>
+                    <p>Grundareal</p>
+                    <p>Antal rum</p>
+                    <p>Antal plan</p>
+                </div>
+                    <div className={styles.scndRow}>
+                        <p>{estatesDetails.id}</p>
+                        <p>{estatesDetails.floor_space}</p>
+                        <p>{estatesDetails.ground_space}</p>
+                        <p>{estatesDetails.num_rooms}</p>
+                        <p>{estatesDetails.num_floors}</p>
+                    </div>
             </div>
             <div className={styles.boxStyles}>
-                <p>Hej</p>
-                <p>Dav</p>
-            </div>
+                <div className={styles.firstRow}>
+                    <p>Kælder</p>
+                    <p>Byggeår</p>
+                    <p>Ombygget</p>
+                    <p>Energimærke</p>
+                    <p>Liggetid</p>
+                </div>
+                    <div className={styles.scndRow}>
+                        <p>{estatesDetails.basement_space}</p>
+                        <p>{estatesDetails.year_construction}</p>
+                        <p>{estatesDetails.year_rebuilt}</p>
+                        <p>{estatesDetails.energy_label_id?.letter}</p>
+                        <p>#</p>
+                    </div>
+                </div>
             <div className={styles.boxStyles}>
-                <p>Hej</p>
-                <p>Dav</p>
+                <div className={styles.firstRow}>
+                    <p>Kontantpris</p>
+                    <p>Udbetaling</p>
+                    <p>Brutto ex. ejerudgift</p>
+                    <p>Netto ex. ejerudgift</p>
+                    <p>Ejerudgift</p>
+                </div>
+                    <div className={styles.scndRow}>
+                        <p>{formatPrice(estatesDetails.price)}</p>
+                        <p>{formatPrice(estatesDetails.payout)}</p>
+                        <p>{formatPrice(estatesDetails.gross)}</p>
+                        <p>{formatPrice(estatesDetails.net)}</p>
+                        <p>{formatPrice(estatesDetails.cost)}</p>
+                    </div>
             </div>
         </section>
+        <section className={styles.description}>
+            <section className={styles.leftie}>
+                <p>{estatesDetails.description}</p>
+            </section>
+            <section className={styles.employee}>
+                <div>
+                    <h3>Kontakt</h3>
+                    <img src={estatesDetails.employees?.image_url} alt="" />
+                    <h4>{estatesDetails.employees?.firstname} {estatesDetails.employees?.lastname}</h4>
+                    <p>{estatesDetails.employees?.position}</p>
+                    <p>Mobil: {estatesDetails.employees?.phone}</p>
+                    <p>Email: {estatesDetails.employees?.email}</p>
+                </div>
+            </section>
+
         </section>
-
-
+        </section>
     </>
   )
 }

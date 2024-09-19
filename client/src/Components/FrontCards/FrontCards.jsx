@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './cards.module.scss';
 import { useSupabase } from '../../Providers/SupabaseProvider';
+import { Link, useParams } from 'react-router-dom';
 
 export const FrontCards = () => {
     const [cardsData, setCardsData] = useState([]);
@@ -37,7 +38,9 @@ export const FrontCards = () => {
             <div className={styles.Container}>
                 {cardsData && cardsData.slice(0, 3).map((item) => (
                     <section key={item.id} className={styles.card}>
+                        <Link to='/Boliger'>
                         <img src={item.image_url} alt="Primary Img" />
+                        </Link>
                         <section className={styles.infoBox}>
                             <div className={styles.topSection}>
                             <p>{item.address}</p>
