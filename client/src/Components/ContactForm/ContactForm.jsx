@@ -57,7 +57,7 @@ export const ContactForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>Kontakt</h1>
         <h3>Udfyld og send formularen og vi vil hurtigst muligt besvare dine spørgsmål.</h3>
-        <label htmlFor="name">Navn</label>
+        <label htmlFor="name">Navn:</label>
         <input
           type="text"
           id="name"
