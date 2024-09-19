@@ -36,7 +36,7 @@ export const ContactForm = () => {
         .insert([
           {
             name: data.name,
-            employee_id: data.employee_id, // employee_id selected from the dropdown
+            employee_id: data.employee_id,
             message: data.message,
             created_at: new Date(),
           },
@@ -47,7 +47,7 @@ export const ContactForm = () => {
         setSuccessMessage('Der var en fejl i afsendelsen af beskeden');
       } else {
         setSuccessMessage('Din besked er nu blevet sendt!');
-        reset(); // Reset the form after successful submission
+        reset();
       }
     }
   };

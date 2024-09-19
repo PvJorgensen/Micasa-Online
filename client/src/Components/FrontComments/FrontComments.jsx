@@ -1,23 +1,31 @@
-import React, { useState, useEffect } from 'react';  // Import useEffect
+import React, { useState, useEffect } from 'react';
 import styles from './frontcomments.module.scss';
 import { useForm } from "react-hook-form";
 import { useSupabase } from '../../Providers/SupabaseProvider';
+import { useAuth } from '../../Providers/AuthProvider'; // Import useAuth
 
 export const FrontComments = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { supabase } = useSupabase();
   const [successMessage, setSuccessMessage] = useState("");
-  const [userComments, setUserComments] = useState([]);  // Initialize comments array
+  const [loginMessage, setLoginMessage] = useState("")
+  const [userComments, setUserComments] = useState([]); 
+  const { loginData } = useAuth(); // Retrieve login data
 
   const onSubmit = async (data) => {
+    if (!loginData?.user) {
+      setLoginMessage("Du skal være logget ind for at sende en anmeldelse.");
+      return;
+    }
+
     if (supabase) {
       const { data: supabaseData, error } = await supabase
         .from("user_comments")
         .insert([{
-          name: data.name,     // 'name' from the form
-          email: data.email,   // 'email' from the form
-          message: data.content, // 'content' is the message field
+          name: data.name,     
+          email: data.email,   
+          message: data.content, 
           created_at: new Date()
         }]);
 
@@ -26,8 +34,8 @@ export const FrontComments = () => {
         setSuccessMessage("Der var en fejl i afsendelsen af beskeden");
       } else {
         setSuccessMessage("Din besked er nu blevet sendt!");
-        reset(); // Reset the form after successful submission
-        getUserComments(); // Fetch comments again after successful submission
+        reset(); 
+        getUserComments(); 
       }
     }
   };
@@ -65,7 +73,7 @@ export const FrontComments = () => {
         </section>
         <section className={styles.commentsBox}>
         {userComments.length > 0 ? (
-          userComments.map((item) => (
+          userComments.slice(0, 1).map((item) => (
             <section key={item.id}>
               <p>{item.message}</p>
               <p>{item.name}</p>
@@ -105,7 +113,7 @@ export const FrontComments = () => {
                 <button type="submit">Send</button>
               </section>
             </form>
-            {successMessage && <span>{successMessage}</span>}
+            {loginMessage && <span>{loginMessage}</span>}
           </div>
         </section>
       </div>

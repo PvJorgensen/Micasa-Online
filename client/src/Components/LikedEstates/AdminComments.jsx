@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import styles from './admincomments.module.scss'
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './admincomments.module.scss';
 import { useSupabase } from '../../Providers/SupabaseProvider';
+import { useAuth } from '../../Providers/AuthProvider';
 
 const months = [
   'Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 
@@ -8,8 +10,10 @@ const months = [
 ];
 
 export const AdminComments = () => {
-  const [userComments, setUserComments] = useState([]);  // Initialize comments array
+  const [userComments, setUserComments] = useState([]); 
   const { supabase } = useSupabase();
+  const { loginData, setLoginData } = useAuth();
+  const navigate = useNavigate();
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -37,8 +41,24 @@ export const AdminComments = () => {
   };
 
   useEffect(() => {
-    getUserComments();
-  }, [supabase]);
+    if (loginData?.user) {
+      getUserComments();
+    }
+  }, [supabase, loginData]);
+
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error('Error logging out:', error.message);
+    } else {
+      setLoginData(null);
+      navigate('/');
+    }
+  };
+
+  if (!loginData?.user) {
+    return <p>Du skal være logget ind for at se denne side.</p>; 
+  }
 
   return (
     <section className={styles.adminContainer}>
@@ -67,8 +87,8 @@ export const AdminComments = () => {
         </section>
         <section className={styles.logout}>
             <p>Du er logget ind som admin</p>
-            <button>Log ud</button>
+            <button onClick={handleLogout}>Log ud</button>
         </section>
     </section>
-  )
-}
+  );
+};

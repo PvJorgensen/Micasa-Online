@@ -34,7 +34,7 @@ const handleLogin = async ({ email, password }) => {
     setLoginError(null)
     // Naviger til forsiden
     setTimeout(() => {
-      navigate('/')
+      navigate('/Min side')
     }, 0)
   }
 }
