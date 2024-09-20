@@ -6,11 +6,11 @@ import { useSupabase } from '../../Providers/SupabaseProvider'
 import styles from './login.module.scss'
 
 export const Login = () => {
-  const { supabase } = useSupabase() // Giver mig adgang til min backend
-  const { loginData, setLoginData } = useAuth() //Henter og opdatere login-data fra AuthProvider
-  const navigate = useNavigate() // Bruges  til at navigere når formen bliver sumbittet
-  const { register, handleSubmit, formState: { errors } } = useForm() // håndtere formularens tilstand og validereing
-  const [loginError, setLoginError] = useState(null) // Kontrollere om der skal sendes fejl besked eller ikke
+  const { supabase } = useSupabase()
+  const { loginData, setLoginData } = useAuth()
+  const navigate = useNavigate()
+  const { register, handleSubmit, formState: { errors } } = useForm()
+  const [loginError, setLoginError] = useState(null)
 
 
 const handleLogin = async ({ email, password }) => {
@@ -21,12 +21,11 @@ const handleLogin = async ({ email, password }) => {
   })
 
   if (error) {
-    // Log fejlmeddelelse til konsol og vis bruger en fejlmeddelelse
     console.error("error logging in:", error)
     setLoginError("Login fejlede. Tjek din email og password.") // Sæt fejlmeddelelse
   } else {
     // Login var succesfuld
-    // Gem autentificeringstoken i sessionStorage
+    // Gem autentiticationtoken i sessionStorage
     sessionStorage.setItem("supabase.auth.token", JSON.stringify(data))
     // Opdater login-data i AuthProvider
     setLoginData(data)
