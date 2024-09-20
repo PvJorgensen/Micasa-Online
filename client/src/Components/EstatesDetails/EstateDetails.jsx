@@ -14,7 +14,7 @@ export const EstateDetails = () => {
   const { supabase } = useSupabase();
   const { estate_id } = useParams();
   const [isOpen, setIsOpen] = useState(false);
-  const [modalContent, setModalContent] = useState(null); // New state to track modal content
+  const [modalContent, setModalContent] = useState(null);
 
   const getEstatesDetails = async () => {
     if (supabase) {

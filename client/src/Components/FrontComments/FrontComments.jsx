@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './frontcomments.module.scss';
 import { useForm } from "react-hook-form";
 import { useSupabase } from '../../Providers/SupabaseProvider';
-import { useAuth } from '../../Providers/AuthProvider'; // Import useAuth
+import { useAuth } from '../../Providers/AuthProvider';
 
 export const FrontComments = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,7 @@ export const FrontComments = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [loginMessage, setLoginMessage] = useState("")
   const [userComments, setUserComments] = useState([]); 
-  const { loginData } = useAuth(); // Retrieve login data
+  const { loginData } = useAuth();
 
   const onSubmit = async (data) => {
     if (!loginData?.user) {

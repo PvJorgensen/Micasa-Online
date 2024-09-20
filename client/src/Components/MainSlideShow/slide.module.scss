@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    height: 60vh; /* Container height remains 70% of the viewport height */
+    height: 60vh;
     margin-top: -90px;
     z-index: -10;
   
@@ -13,7 +13,7 @@
   
     .slide {
       min-width: 100%;
-      height: 100%; /* Ensures each slide takes the full height of the container */
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -21,7 +21,7 @@
   
     img {
       width: 100%;
-      object-fit: cover; /* Ensures the entire image fits within the container */
+      object-fit: cover;
       height: 800px;
       margin-top: -100px;
     }

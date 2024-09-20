@@ -49,7 +49,7 @@ export const EstatesList = () => {
 
   useEffect(() => {
     getCardsData();
-  }, [supabase, sortOption, filterOption]); // Fetcher data hvergang man sortere eller filtrere
+  }, [supabase, sortOption, filterOption]);
 
   const formatPrice = (price) => new Intl.NumberFormat('da-DK').format(price);
 
