@@ -80,7 +80,7 @@ export const EstatesList = () => {
               Filter
             </option>
             <option value="Villa">Villa</option>
-            <option value="Ejerlejelighed">Ejerlejelighed</option>
+            <option value="Ejerlejlighed">Ejerlejlighed</option>
             <option value="Andelsbolig">Andelsbolig</option>
           </select>
         </div>
