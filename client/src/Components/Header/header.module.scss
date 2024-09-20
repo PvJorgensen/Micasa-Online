@@ -9,3 +9,13 @@
     font-family: "Poppins", sans-serif;
     z-index: 9999;
 }
+
+@media (max-width: 768px) {
+    .headerMain {
+        background-size: contain;
+        justify-content: left;
+        img {
+            width: 50%;
+        }
+    }
+}

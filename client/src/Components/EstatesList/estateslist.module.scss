@@ -73,3 +73,11 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .cardsWrapper {
+        .card {
+            width: 200px;
+        }
+    }
+}

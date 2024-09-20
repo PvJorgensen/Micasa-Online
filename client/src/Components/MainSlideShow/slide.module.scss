@@ -27,3 +27,8 @@
     }
   }
   
+  @media (max-width: 768px) {
+    .slideShowContainer {
+      display: none;
+    }
+}

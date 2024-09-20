@@ -42,3 +42,10 @@ footer {
         }
     }
 }
+
+@media (max-width: 768px) {
+    footer {
+        margin-top: 30px;
+        padding-right: 30px;
+    }
+}

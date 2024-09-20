@@ -50,3 +50,15 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .contactForm {
+        display: block;
+    }
+    .mapsite {
+        display: none;
+    }
+    iframe {
+        display: none;
+    }
+}

@@ -90,3 +90,13 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .commentWrapper {
+        .commentsBox {
+            margin-top: 0;
+            padding-top: 10px;
+            padding-bottom: 50px;
+        }
+    }
+}

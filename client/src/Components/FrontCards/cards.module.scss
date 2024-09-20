@@ -56,3 +56,26 @@
         margin-top: -40px;
     }
 }
+
+@media (max-width: 768px) {
+    .cardsWrapper {
+        margin-top: 5px;
+        margin-left: 0;
+        .Container {
+            flex-wrap: wrap;
+            width: 100%;
+            margin-left: 57%;
+        }
+        .card {
+            min-height: 200px;
+            max-width: 200px;
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .card:nth-child(2) {
+            margin-top: 0
+        }
+    }
+}

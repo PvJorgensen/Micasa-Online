@@ -37,3 +37,17 @@
     }
     }
 }
+
+@media (max-width: 768px) {
+    .navMain {
+        ul {
+            li {
+                font-size: 10px;
+                margin-top: -10px;
+            }
+        }
+        form {
+            display: none;
+        }
+    }
+}
